@@ -1,0 +1,24 @@
+# - name: Update apt
+#   sudo: true
+#   apt: update_cache=yes
+
+- name: Install packages
+  sudo: true
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - nodejs
+    - npm
+    - python-dev
+    - libssl-dev
+    - libffi-dev
+    - imagemagick
+
+# - name: Install Lektor
+#   sudo: true
+#   shell: curl -sf https://www.getlektor.com/install.sh | sudo clean=no sh
+- name: Copy Lektor install script
+  copy: src=install_lektor.py dest=~/install_lektor.py
+
+- name: Install Lektor
+  sudo: true
+  command: python /home/vagrant/install_lektor.py

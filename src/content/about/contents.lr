@@ -1,0 +1,11 @@
+_model: page
+---
+menu_title: About
+---
+title: About this page
+---
+sort_key: 10
+---
+body:
+
+Personal homepage displaying projects and interesting stuff.

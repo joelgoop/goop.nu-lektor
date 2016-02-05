@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{ '/static/style.css'|url }}">
+<title>{% block title %}Welcome{% endblock %} — goop.nu</title>
+<body>
+  <header>
+    <h1><a href="{{ '/'|url }}">goop.nu</a></h1>
+    <nav>
+      <ul class="nav navbar-nav">
+        {% for page in site.query('/').order_by('sort_key') %}
+          <li{% if this.is_child_of(page._slug) %} class="active"{% endif
+            %}><a href="{{ page._slug|url }}">{{ page.menu_title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
+  <div class="page">
+    {% block body %}{% endblock %}
+  </div>
+  <footer>
+    &copy; Copyright 2016 by Joel Goop.
+  </footer>
+</body>

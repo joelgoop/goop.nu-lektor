@@ -1,0 +1,3 @@
+.vagrant/
+*.sublime-*
+**/node_modules/

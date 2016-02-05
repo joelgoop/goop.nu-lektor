@@ -1,0 +1,7 @@
+_model: projects
+---
+menu_title: Projects
+---
+title: {{this.menu_title}}
+---
+sort_key: 2

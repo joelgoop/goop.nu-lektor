@@ -1,0 +1,10 @@
+{% macro render_project(project, from_index=false) %}
+  <div class="blog-post">
+  {% if from_index %}
+    <h2><a href="{{ project|url }}">{{ project.title }}</a></h2>
+  {% else %}
+    <h2>{{ project.title }}</h2>
+  {% endif %}
+  {{ project.body }}
+  </div>
+{% endmacro %}

@@ -34,7 +34,7 @@ def find_locations(paths):
                 '.local', 'lib', 'lektor')
         elif path.endswith('/bin'):
             return path, os.path.join(
-                os.path.dirname(path), 'lib', 'lektor')q
+                os.path.dirname(path), 'lib', 'lektor')
 
 
 def wipe_installation(lib_dir, symlink_path):

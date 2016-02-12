@@ -1,23 +1,36 @@
 <!doctype html>
-<meta charset="utf-8">
-<link rel="stylesheet" href="{{ '/static/style.css'|url }}">
+{% include 'includes/header.html' %}
 <title>{% block title %}Welcome{% endblock %} — goop.nu</title>
 <body>
   <header>
-    <h1><a href="{{ '/'|url }}">goop.nu</a></h1>
-    <nav>
-      <ul class="nav navbar-nav">
-        {% for page in site.query('/').order_by('sort_key') %}
-          <li{% if this.is_child_of(page._slug) %} class="active"{% endif
-            %}><a href="{{ page._slug|url }}">{{ page.menu_title }}</a></li>
-        {% endfor %}
-      </ul>
+    <nav class="navbar">
+      <div>
+        <ul class="brand">
+          <li><a href="{{ '/'|url }}">goop.nu</a></li>
+        </ul>
+        <ul class="site-menu">
+          {% for page in site.query('/').order_by('sort_key') %}
+            <li{% if this.is_child_of(page._slug) %} class="active"{% endif
+              %}><a href="{{ page._slug|url }}" data-color="{{ page.menu_color }}">{{ page.menu_title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
     </nav>
   </header>
   <div class="page">
+    <div class="small-12 columns">
     {% block body %}{% endblock %}
+    </div>
   </div>
   <footer>
-    &copy; Copyright 2016 by Joel Goop.
+    <div>
+      <div class="contact">
+        <span><i class="fa-fw fa fa-envelope-o"></i><a href="mailto:contact@goop.nu">contact@goop.nu</a></span>
+        <span><i class="fa-fw fa fa-github"></i><a href="http://github.com/joelgoop">joelgoop</a></span>
+      </div>
+      <div class="copyright">
+        <span><i class="fa-fw fa fa-copyright fa-fw"></i>2016 Joel Goop</span>
+      </div>
+    </div>
   </footer>
 </body>

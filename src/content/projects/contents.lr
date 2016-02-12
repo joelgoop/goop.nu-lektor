@@ -2,6 +2,8 @@ _model: projects
 ---
 menu_title: Projects
 ---
-title: {{this.menu_title}}
+menu_color: green
+---
+title: Projects
 ---
 sort_key: 2

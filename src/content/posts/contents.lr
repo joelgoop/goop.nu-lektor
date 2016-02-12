@@ -1,0 +1,9 @@
+_model: blog
+---
+menu_title: Posts
+---
+menu_color: red
+---
+title: Posts
+---
+sort_key: 0

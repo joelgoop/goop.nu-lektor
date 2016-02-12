@@ -1,13 +1,16 @@
-# - name: Update apt
-#   sudo: true
-#   apt: update_cache=yes
+- name: Install nodejs PPA
+  shell: curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+
+- name: Update apt
+  sudo: true
+  apt: update_cache=yes
 
 - name: Install packages
   sudo: true
   apt: pkg={{ item }} state=installed
   with_items:
     - nodejs
-    - npm
+    - build-essential
     - python-dev
     - libssl-dev
     - libffi-dev

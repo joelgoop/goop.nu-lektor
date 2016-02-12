@@ -2,6 +2,8 @@ _model: page
 ---
 menu_title: About
 ---
+menu_color: yellow
+---
 title: About this page
 ---
 sort_key: 10

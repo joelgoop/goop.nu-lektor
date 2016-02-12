@@ -1,0 +1,181 @@
+$global-width: 45rem;
+$grid-row-width: $global-width;
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,700,600&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,700,700italic,400italic&subset=latin,latin-ext);
+$header-font-family: "Open Sans","Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$body-font-family:  "Merriweather",Garamond, Times,"Open Sans","Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;;
+
+$topbar-background: white;
+
+$link-colors: (
+  'red': #DD1E2F,
+  'yellow': #EBB035,
+  'green': #218559,
+  'blue': #06A2CB,
+  'beige': #D0C6B1,
+  'black': #192823
+) !default;
+
+@import "~foundation-sites/scss/foundation";
+@include foundation-global-styles;
+@include foundation-typography;
+@include foundation-grid;
+@include foundation-top-bar;
+@include foundation-menu;
+// @include foundation-button;
+// @include foundation-forms;
+// @include foundation-visibility-classes;
+// @include foundation-float-classes;
+// @include foundation-accordion;
+// @include foundation-accordion-menu;
+// @include foundation-badge;
+// @include foundation-breadcrumbs;
+// @include foundation-button-group;
+// @include foundation-callout;
+// @include foundation-close-button;
+// @include foundation-drilldown-menu;
+// @include foundation-dropdown;
+// @include foundation-dropdown-menu;
+// @include foundation-flex-video;
+// @include foundation-label;
+// @include foundation-media-object;
+// @include foundation-off-canvas;
+// @include foundation-orbit;
+// @include foundation-pagination;
+// @include foundation-progress-bar;
+// @include foundation-slider;
+// @include foundation-sticky;
+// @include foundation-reveal;
+// @include foundation-switch;
+// @include foundation-table;
+// @include foundation-tabs;
+// @include foundation-thumbnail;
+// @include foundation-title-bar;
+// @include foundation-to'oltip;
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+$topbar-height: 2.5rem;
+$topbar-border-height: 0.4rem;
+$topbar-elem-spacing: 2rem;
+$topbar-elem-padding: 0.7rem;
+
+$footer-bg-color: white;
+$footer-border-color: $medium-gray;
+$footer-padding: 0.5rem;
+$footer-font-size: $small-font-size;
+
+@import "mixins";
+
+// Header/menu/top bar settings
+
+header {
+    font-family: $header-font-family;
+    position: fixed;
+    width: 100%;
+}
+
+.navbar {
+    @extend .top-bar;
+    padding: 0;
+    // border-top: $topbar-border-height solid $light-gray;
+    border-bottom: 1px $medium-gray solid;
+    @include box-shadow(0,1px,2px,$medium-gray);
+}
+
+.navbar > div {
+    @extend .row;
+}
+
+.navbar ul {
+    @extend .menu;
+}
+
+.navbar .site-menu {
+    @extend .top-bar-right;
+}
+
+.navbar .site-menu a {
+    // style menu links
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    font-size: $global-font-size * 0.9;
+    color: $black;
+
+    // spacing between links and border
+    border-bottom: $topbar-border-height solid transparent;
+    margin-left: $topbar-elem-spacing;
+    padding-left: $topbar-elem-padding;
+    padding-right: $topbar-elem-padding;
+    padding-top: $topbar-border-height/2 !important;
+
+}
+
+@each $cname,$color in $link-colors {
+    .navbar .site-menu a[data-color=#{$cname}]:hover,
+    .navbar .site-menu a[data-color=#{$cname}].active {
+        color: darken($color, 10%);
+        border-bottom: $topbar-border-height solid darken($color, 10%);   
+    }
+}
+
+.navbar a {
+    line-height: $topbar-height !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.navbar .brand {
+    @extend .top-bar-left;
+    font-size: $global-font-size * 1.5;
+}
+
+.navbar .brand li a {
+    @extend .menu-text;
+}
+
+// Main page content
+
+div.page {
+    @extend .row;
+    padding-top: $topbar-height+3rem;
+    padding-bottom: 2rem;
+}
+
+div.page > div {
+    @extend .small-12, .column;
+}
+
+// Footer settings
+
+footer {
+    font-size: $footer-font-size;
+    padding: $footer-padding;
+    border-top: 1px $footer-border-color solid;
+    background-color: $footer-bg-color;
+}
+
+footer > div {
+    @extend .row;
+}
+
+footer div span {
+    display: block;
+    width: 100%;
+}
+
+footer i {
+    margin-right: 0.4rem;
+}
+
+footer div.contact {
+    @extend .small-6, .columns;
+}
+
+footer div.copyright {
+    @extend .small-6, .columns;
+    text-align: right;
+}
+

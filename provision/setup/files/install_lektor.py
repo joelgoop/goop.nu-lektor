@@ -47,6 +47,7 @@ def check_installation(lib_dir, bin_dir):
     symlink_path = os.path.join(bin_dir, 'lektor')
     if os.path.exists(lib_dir) or os.path.lexists(symlink_path):
         print '   Lektor seems to be installed already. Exiting.'
+        sys.exit(0)
 
 def fail(message):
     print 'Error: %s' % message

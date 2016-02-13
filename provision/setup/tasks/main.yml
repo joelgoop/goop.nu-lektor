@@ -16,11 +16,15 @@
     - libffi-dev
     - imagemagick
 
-# - name: Install Lektor
-#   sudo: true
-#   shell: curl -sf https://www.getlektor.com/install.sh | sudo clean=no sh
-- name: Copy Lektor install script
-  copy: src=install_lektor.py dest=~/install_lektor.py
+- name: Copy files
+  copy: src={{item.file}} dest={{item.path}}
+  with_items:
+    - {file: 'install_lektor.py', path: '~/install_lektor.py'}
+    - {file: 'ssh_config', path: '~/.ssh/config'}
+    - {file: '/vagrant/deploy/id_rsa', path: '~/.ssh/id_rsa'}
+
+- name: Set permissions
+  file: path=~/.ssh/id_rsa mode=0600
 
 - name: Install Lektor
   sudo: true

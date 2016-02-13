@@ -1,0 +1,5 @@
+Host production
+    HostName 178.62.207.102
+    Port 2222
+    IdentityFile ~/.ssh/id_rsa
+    StrictHostKeyChecking no

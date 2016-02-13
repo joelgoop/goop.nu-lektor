@@ -2,5 +2,8 @@
 name = goop.nu
 url_style = absolute
 
+[servers.production]
+target = rsync://goop@production/var/www/goop.nu/html/
+
 [packages]
 lektor-webpack-support = 0.1

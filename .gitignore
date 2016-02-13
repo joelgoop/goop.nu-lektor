@@ -2,3 +2,4 @@
 *.sublime-*
 **/node_modules/
 src/assets/static/gen/
+deploy/

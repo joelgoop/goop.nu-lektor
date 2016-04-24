@@ -68,6 +68,7 @@ $footer-font-size: $small-font-size;
 
 @import "mixins";
 
+
 // Header/menu/top bar settings
 
 header {
@@ -152,7 +153,7 @@ div.page > div {
 
 footer {
     font-size: $footer-font-size;
-    padding: $footer-padding;
+    padding: $footer-padding 0px;
     border-top: 1px $footer-border-color solid;
     background-color: $footer-bg-color;
 }
@@ -164,18 +165,41 @@ footer > div {
 footer div span {
     display: block;
     width: 100%;
+    line-height: 1.4;
 }
 
 footer i {
+    @extend .fa;
     margin-right: 0.4rem;
+    width: 1rem;
 }
 
 footer div.contact {
-    @extend .small-6, .columns;
+    @extend .medium-6, .columns;
+}
+
+footer div.contact i.mail {
+    @extend .fa-envelope-o;
+    font-size: $footer-font-size*1.4 !important
+}
+footer div.contact i.github {
+    @extend .fa-github;
+    font-size: $footer-font-size*1.5 !important
+}
+
+footer div.copyright i {
+    @extend .fa-copyright;
 }
 
 footer div.copyright {
-    @extend .small-6, .columns;
-    text-align: right;
+    @extend .medium-6, .columns;
+    @media only screen and (min-width: map-get($breakpoints,'medium')) {
+        text-align: right;
+    }
+    @media only screen and (max-width: map-get($breakpoints,'medium')) {
+        margin-top: 1rem;
+    }
 }
 
+    // footer div.copyright {
+    // }

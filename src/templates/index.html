@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% from "macros/blog.html" import render_blog_post_short %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block body %}
+  <div class="columns">
+    <h3>Latest posts</h3>{% for child in site.get('/posts').children.limit(5) %}
+  {{ render_blog_post_short(child, from_index=true) }}
+  {% endfor %}</div>
+  <div class="columns">
+    <h3>Projects</h3>{% for child in site.get('/projects').children.limit(5) %}
+  {{ render_blog_post_short(child, from_index=true) }}
+  {% endfor %}</div>
+{% endblock %}

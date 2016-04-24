@@ -18,3 +18,21 @@
   {{ post.body }}
   </div>
 {% endmacro %}
+
+{% macro render_blog_post_short(post, from_index=false) %}
+  <div class="blog-post-short">
+  <p class="meta">
+    written by
+    {% if post.twitter_handle %}
+      <a href="https://twitter.com/{{ post.twitter_handle
+        }}">{{ post.author or post.twitter_handle }}</a>
+    {% else %}
+      {{ post.author }}
+    {% endif %}
+    on {{ post.pub_date }}
+  </p>
+  <a href="{{ post|url }}">{{ post.title }}</a>
+  <span class="separator">|</span> 
+  {{ post.body }}
+  </div>
+{% endmacro %}
